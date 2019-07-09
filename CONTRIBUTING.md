@@ -12,10 +12,36 @@ I'd love it for you to take initiative and submit pull requests. It's extra awes
 ## Strict linting
 The Travis build currently checks strict format and linting, so be sure to add comments!
 
+## Build
+
+### On Mac
+```bash
+brew install pygobject3 gtk+3
+
+virtualenv run
+source run/bin/activate
+pip install pycairo
+pip install PyGObject
+pip install pyvips
+
+bash scripts/build.sh
+```
+
+### On Ubuntu/Debian
+```bash
+sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0
+
+virtualenv run
+source run/bin/activate
+pip install pycairo
+pip install PyGObject
+
+```
+
 ## Run the tests
 
 ```sh
-go test
+CGO_CFLAGS_ALLOW=-Xpreprocessor go test ./...
 ```
 
 ## Get in touch
